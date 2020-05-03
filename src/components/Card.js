@@ -1,12 +1,14 @@
 import React from 'react';
 
-const Card = ({ pokemonName, pokemonImg }) => {
+const Card = ({ pokemonName, pokemonImg, pokemonHeight, pokemonWeight }) => {
     return (
         <>
             <h1>Pokemon</h1>
             <h2>{pokemonName}</h2>
-            <img src={pokemonImg}/>
-            <p>El pokemon se llama Charmander, mide 100 cm y pesa 60 kg.</p>
+            <div>
+            <img src={pokemonImg} alt={pokemonName}/>
+            </div>
+            <p>El pokemon se llama {pokemonName}, mide {pokemonHeight * 10} cm y pesa {pokemonWeight} kg.</p>
         </>
     )
 }

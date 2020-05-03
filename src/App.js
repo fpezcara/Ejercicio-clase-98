@@ -14,13 +14,13 @@ const App = () => {
     console.log(selectedPokemon)
   }
 
-  // console.log(pokemon.sprites.front_default)
+  console.log(pokemon.sprites && pokemon.sprites.front_default)
 
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${selectedPokemon}`)
       .then(res => res.json())
       .then(data => setPokemon(data))
-  }, [])
+  }, [selectedPokemon])
 
   console.log(selectedPokemon)
   console.log(pokemon.name)
@@ -28,7 +28,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Card pokemonName={pokemon.name} pokemonImg={pokemon.front_shiny}/>
+      <Card pokemonName={selectedPokemon} pokemonImg={pokemon.sprites && pokemon.sprites.front_default} pokemonHeight={pokemon.height && pokemon.height} pokemonWeight={pokemon.weight && pokemon.weight}/>
       <Button id={"charmander"} name={"Charmander"} handleClick={handleClick} />
       <Button id={"squirtle"} name={"Squirtle"} handleClick={handleClick} />
       <Button id={"bulbasaur"} name={"Bulbasaur"} handleClick={handleClick} />
